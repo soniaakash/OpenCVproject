@@ -15,7 +15,7 @@ extern String image_window;
 extern String result_window;
 extern String templ_window;
 extern int select_method;
-
+extern int found;
 // Function definition.
 void matchingMethod( int, void* )
 {

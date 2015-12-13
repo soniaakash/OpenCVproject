@@ -8,8 +8,8 @@ using namespace std;
 using namespace cv;
 
 // Input Variables.
-Mat img; Mat temp; Mat result;
-
+Mat img; Mat img2 ; Mat temp; Mat result; Mat result2;
+int found=0;
 // Output Windows
 String image_window = "Source Image";
 String result_window = "Result window";
@@ -37,10 +37,18 @@ int main( int argc, char** argv )
   // Create Trackbar
   String trackbar_name = "Method:";
   createTrackbar( trackbar_name, image_window, &select_method, trackbar_limit, matchingMethod );
+  //Accept image
+ for(int i=2; i < argc; i++){
+  img = imread( argv[i], 1 ); // imread( image_file, flag )
 
-  matchingMethod( 0, 0 );
+  if(matchingMethod( 0, 0 ))
+	  break;
+  }
+
+  if(!found){
+	  cout << "No Match Found" << endl;
+  }
 
   waitKey(0);
   return 0;
 }
-

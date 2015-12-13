@@ -71,6 +71,7 @@ bool matchingMethod( int, void* )
   imshow( image_window, img );
   imshow( result_window, result );
   imshow( templ_window, temp );
+  found=1;
 return 1;
   }
   else{
